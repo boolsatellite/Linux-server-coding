@@ -1,0 +1,3 @@
+/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles/Linux_server_coding.dir
+/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles/rebuild_cache.dir
