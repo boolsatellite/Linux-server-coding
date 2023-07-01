@@ -129,6 +129,78 @@ Linux_server_coding/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/build
 .PHONY : Linux_server_coding/fast
 
+5_10.o: 5_10.cpp.o
+.PHONY : 5_10.o
+
+# target to build an object file
+5_10.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_10.cpp.o
+.PHONY : 5_10.cpp.o
+
+5_10.i: 5_10.cpp.i
+.PHONY : 5_10.i
+
+# target to preprocess a source file
+5_10.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_10.cpp.i
+.PHONY : 5_10.cpp.i
+
+5_10.s: 5_10.cpp.s
+.PHONY : 5_10.s
+
+# target to generate assembly for a file
+5_10.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_10.cpp.s
+.PHONY : 5_10.cpp.s
+
+5_11.o: 5_11.cpp.o
+.PHONY : 5_11.o
+
+# target to build an object file
+5_11.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_11.cpp.o
+.PHONY : 5_11.cpp.o
+
+5_11.i: 5_11.cpp.i
+.PHONY : 5_11.i
+
+# target to preprocess a source file
+5_11.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_11.cpp.i
+.PHONY : 5_11.cpp.i
+
+5_11.s: 5_11.cpp.s
+.PHONY : 5_11.s
+
+# target to generate assembly for a file
+5_11.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_11.cpp.s
+.PHONY : 5_11.cpp.s
+
+5_12.o: 5_12.cpp.o
+.PHONY : 5_12.o
+
+# target to build an object file
+5_12.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_12.cpp.o
+.PHONY : 5_12.cpp.o
+
+5_12.i: 5_12.cpp.i
+.PHONY : 5_12.i
+
+# target to preprocess a source file
+5_12.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_12.cpp.i
+.PHONY : 5_12.cpp.i
+
+5_12.s: 5_12.cpp.s
+.PHONY : 5_12.s
+
+# target to generate assembly for a file
+5_12.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_12.cpp.s
+.PHONY : 5_12.cpp.s
+
 5_4.o: 5_4.cpp.o
 .PHONY : 5_4.o
 
@@ -186,6 +258,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Linux_server_coding"
+	@echo "... 5_10.o"
+	@echo "... 5_10.i"
+	@echo "... 5_10.s"
+	@echo "... 5_11.o"
+	@echo "... 5_11.i"
+	@echo "... 5_11.s"
+	@echo "... 5_12.o"
+	@echo "... 5_12.i"
+	@echo "... 5_12.s"
 	@echo "... 5_4.o"
 	@echo "... 5_4.i"
 	@echo "... 5_4.s"

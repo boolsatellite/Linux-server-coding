@@ -251,7 +251,122 @@ flag为数据收发提供额外的控制
 */
 ```
 
+UDP数据读写
 
+```c
+#include <sys/types.h>
+#include <sys/socket.h>
+ssize_t recvform(int sockfd , void *buf , size_t len , int flags , struct sockaddr * src_addr , socklen_t * addrlen);
+ssize_t sendto(int sockfd , const void * buf , size_t len , int flags , const struct sockaddr * dest_addr , socklen_t addrlen);
+
+/*
+recform 读取sockfd上的数据，buf和len分别指定缓冲器的位置和大小。UDP是无连接的故需要指定发送端的地址结构，addrlen指向地址结构的长度
+sendto向sockfd写数据dest_addr参数指定接收端的socket地址，addrlen参数则指定该地址的长度。
+flag参数的取值与recv send相同
+recvform 和 sendto 系统调用也可以用于面向连接的socket数据读写，只需将最后两参数设为NULL(因为我们已经和对方立了连接，所以已经知道其socket地址了)
+*/
+```
+
+### 带外标记
+
+在实际应用中，我们无法预测带外数据何时到来，好在Linux内核检测到TCP URG标志时将通知应用程序接收，如 IO复用产生异常和SIGURG信号，即使得到了通知还需要明确带外数据的具体位置才能准确接收带外数据
+
+```c
+#include <sys/socket.h>
+int sockatmark(int sockfd);
+/*此系统调用用于判断sockfd是否处于带外标记，即下一个被读取到的数
+据是否是带外数据。如果是，sockatmark返回1，此时我们就可以利用
+带MSG_OOB标志的recv调用来接收带外数据。如果不是，则sockatmark返回*/
+```
+
+### 地址信息函数
+
+```c
+#incldue <sys/socket.h>
+int getsockname(int sockfd , struct sockaddr * address , socklen_t * address_len);
+int getperrname(int sockfd , struct sockaddr * address , socklen_t * address_len);
+/*
+获取本端和对端的地址结构以及长度，保存在address所指的地址结构中和 address_len 所指的长度中
+如果实际socket地址的长度大于address所指内存区的大小，那么该socket地址将被截断。
+getsockname成功时返回0，失败返回-1并设置errno。
+*/
+```
+
+### socket选项
+
+fcntl时控制文件描述符的通用POSIX方法，如下两个系统调用用则是专门用来读取和设置socket文件描述符属性的方法：
+
+```c
+#include <sys/socket.h>
+int getsockopt(int sockfd , int level , int option_name , void * option_value , socklen_t * restrict option_len);
+int setsockopt(int sockfd , int level , int option_name , const void * option_value , socklen_t option_len);
+/*sockfd参数指定被操作的目标socket。
+level参数指定要操作哪个协议的选项（即属性）
+option_name参数则指定选项的名字
+option_value和option_len参数分别是被操作选项的值和长度。不同的选项具有不同类型的值*/
+```
+
+![](D:\github\Linux-server-coding\img\Snipaste_2023-07-01_11-05-30.png)
+
+值得注意的是，对服务器而言，有部分socket选项只能在调用listen之前针对监听socket设置才是有效的。连接socket只能由accept返回，在此前l加入listen队列连接就已经进入了```SYN_REVCD```状态，意味着同步报文已经发送结束了，但有些socket选项却应该在同步报文中设置。对这种情况，Linux给开发人员提供的解决方案是：对监听socket设置这些socket选项，那么accept返回的连接socket将自动继承这些选项。这些socket选项包括 ：```SO_DEBUG、 SO_DONTROUTE、SO_KEEPALIVE、SO_LINGER、 SO_OOBINLINE、SO_RCVBUF、SO_RCVLOWAT、SO_SNDBUF、 SO_SNDLOWAT、TCP_MAXSEG和TCP_NODELAY```。而对客户端而言，这些socket选项则应该在调用connect函数之前设置，因为connect调 用成功返回之后，TCP三次握手已完成。
+
+**SO_REUSEADDR选项：**
+
+服务器程序可以通过设置socket选项SO_REUSEADDR来强制使用被处于 TIME_WAIT状态的连接占用的socket地址。
+
+```c
+int sock = socket(AF_INET,SOCK_STREAM,0);	int reuse = 1;
+setsockopt(sock,SOL_SOCKET,CO_REUSEADDR,&reuse,sizeof(reuse));
+```
+
+经过setsockopt的设置之后，即使sock处于TIME_WAIT状态，与之绑定的socket地址也可以立即被重用。
+
+### 网络信息API
+
+gethostbyname 根据主机名获取主句完整信息，gethostbyaddr 根据IP地址获取主机完整信息。通常先在本地的/etc/hosts配置文件中查找主机，如果没有找到，再去访问DNS服务器
+
+```c
+#include <netdb.h。
+struct hostent * gethostbyname(const char * name);
+struct hostent * gethostbyaddr(const void * addr , size_t len , int type);
+//hostent定义:
+struct hostent
+{
+    char * h_name;       //主机名
+    char ** h_alliases;  //主机别名列表，可能有多个
+    int h_addrtype;      //地址类型
+    int h_length;        //地址长度
+    char ** h_addr_list  //按网络字节序列出的主机IP地址
+};
+
+/*
+name:目标主句的主机名
+addr:目标主句的IP地址 len:addr所指IP地址的长度 type:指定addr所指IP地址的类型AF_INET(6)
+*/
+```
+
+getservbyname函数根据名称获取某个服务的完整信息， getservbyport函数根据端口号获取某个服务的完整信息。它们实际上都是通过读取/etc/services文件来获取服务的信息的。
+
+```c
+#include <netdb.h>
+struct servent * getservbuname(const char * name , const char * proto);
+struct servent * getservbyport(int port , const char * proto);
+//servent定义:
+struct servent
+{
+    char * s_name;       //服务名称
+    char ** s_aliases;   //服务的别名列表，可能有多个
+    int s_port;          //端口号
+    char * s_proto;      //服务类型，通常为 tcp 或 udp
+}
+/*
+name参数指定目标服务的名字，port参数指定目标服务对应的端口号。
+proto参数指定服务类型，给它传递“tcp”表示获取流服务，给它传
+递“udp”表示获取数据报服务，给它传递NULL则表示获取所有类型的服务。
+*/
+```
+
+## 高级IO函数
 
 
 

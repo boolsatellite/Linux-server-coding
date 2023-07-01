@@ -82,6 +82,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/d/github/Linux-server-coding/5_10.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/5_11.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/5_12.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
 		<Unit filename="/mnt/d/github/Linux-server-coding/5_4.cpp">
 			<Option target="Linux_server_coding"/>
 		</Unit>

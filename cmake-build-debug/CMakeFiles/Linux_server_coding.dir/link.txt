@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/Linux_server_coding.dir/5_4.cpp.o CMakeFiles/Linux_server_coding.dir/5_6.cpp.o -o Linux_server_coding 
+/usr/bin/c++ -g CMakeFiles/Linux_server_coding.dir/5_4.cpp.o CMakeFiles/Linux_server_coding.dir/5_6.cpp.o CMakeFiles/Linux_server_coding.dir/5_10.cpp.o CMakeFiles/Linux_server_coding.dir/5_11.cpp.o CMakeFiles/Linux_server_coding.dir/5_12.cpp.o -o Linux_server_coding 

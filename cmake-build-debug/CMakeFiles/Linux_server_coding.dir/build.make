@@ -97,19 +97,67 @@ CMakeFiles/Linux_server_coding.dir/5_6.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Linux_server_coding.dir/5_6.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/github/Linux-server-coding/5_6.cpp -o CMakeFiles/Linux_server_coding.dir/5_6.cpp.s
 
+CMakeFiles/Linux_server_coding.dir/5_10.cpp.o: CMakeFiles/Linux_server_coding.dir/flags.make
+CMakeFiles/Linux_server_coding.dir/5_10.cpp.o: ../5_10.cpp
+CMakeFiles/Linux_server_coding.dir/5_10.cpp.o: CMakeFiles/Linux_server_coding.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Linux_server_coding.dir/5_10.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Linux_server_coding.dir/5_10.cpp.o -MF CMakeFiles/Linux_server_coding.dir/5_10.cpp.o.d -o CMakeFiles/Linux_server_coding.dir/5_10.cpp.o -c /mnt/d/github/Linux-server-coding/5_10.cpp
+
+CMakeFiles/Linux_server_coding.dir/5_10.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Linux_server_coding.dir/5_10.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/github/Linux-server-coding/5_10.cpp > CMakeFiles/Linux_server_coding.dir/5_10.cpp.i
+
+CMakeFiles/Linux_server_coding.dir/5_10.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Linux_server_coding.dir/5_10.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/github/Linux-server-coding/5_10.cpp -o CMakeFiles/Linux_server_coding.dir/5_10.cpp.s
+
+CMakeFiles/Linux_server_coding.dir/5_11.cpp.o: CMakeFiles/Linux_server_coding.dir/flags.make
+CMakeFiles/Linux_server_coding.dir/5_11.cpp.o: ../5_11.cpp
+CMakeFiles/Linux_server_coding.dir/5_11.cpp.o: CMakeFiles/Linux_server_coding.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Linux_server_coding.dir/5_11.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Linux_server_coding.dir/5_11.cpp.o -MF CMakeFiles/Linux_server_coding.dir/5_11.cpp.o.d -o CMakeFiles/Linux_server_coding.dir/5_11.cpp.o -c /mnt/d/github/Linux-server-coding/5_11.cpp
+
+CMakeFiles/Linux_server_coding.dir/5_11.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Linux_server_coding.dir/5_11.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/github/Linux-server-coding/5_11.cpp > CMakeFiles/Linux_server_coding.dir/5_11.cpp.i
+
+CMakeFiles/Linux_server_coding.dir/5_11.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Linux_server_coding.dir/5_11.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/github/Linux-server-coding/5_11.cpp -o CMakeFiles/Linux_server_coding.dir/5_11.cpp.s
+
+CMakeFiles/Linux_server_coding.dir/5_12.cpp.o: CMakeFiles/Linux_server_coding.dir/flags.make
+CMakeFiles/Linux_server_coding.dir/5_12.cpp.o: ../5_12.cpp
+CMakeFiles/Linux_server_coding.dir/5_12.cpp.o: CMakeFiles/Linux_server_coding.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Linux_server_coding.dir/5_12.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Linux_server_coding.dir/5_12.cpp.o -MF CMakeFiles/Linux_server_coding.dir/5_12.cpp.o.d -o CMakeFiles/Linux_server_coding.dir/5_12.cpp.o -c /mnt/d/github/Linux-server-coding/5_12.cpp
+
+CMakeFiles/Linux_server_coding.dir/5_12.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Linux_server_coding.dir/5_12.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/github/Linux-server-coding/5_12.cpp > CMakeFiles/Linux_server_coding.dir/5_12.cpp.i
+
+CMakeFiles/Linux_server_coding.dir/5_12.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Linux_server_coding.dir/5_12.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/github/Linux-server-coding/5_12.cpp -o CMakeFiles/Linux_server_coding.dir/5_12.cpp.s
+
 # Object files for target Linux_server_coding
 Linux_server_coding_OBJECTS = \
 "CMakeFiles/Linux_server_coding.dir/5_4.cpp.o" \
-"CMakeFiles/Linux_server_coding.dir/5_6.cpp.o"
+"CMakeFiles/Linux_server_coding.dir/5_6.cpp.o" \
+"CMakeFiles/Linux_server_coding.dir/5_10.cpp.o" \
+"CMakeFiles/Linux_server_coding.dir/5_11.cpp.o" \
+"CMakeFiles/Linux_server_coding.dir/5_12.cpp.o"
 
 # External object files for target Linux_server_coding
 Linux_server_coding_EXTERNAL_OBJECTS =
 
 Linux_server_coding: CMakeFiles/Linux_server_coding.dir/5_4.cpp.o
 Linux_server_coding: CMakeFiles/Linux_server_coding.dir/5_6.cpp.o
+Linux_server_coding: CMakeFiles/Linux_server_coding.dir/5_10.cpp.o
+Linux_server_coding: CMakeFiles/Linux_server_coding.dir/5_11.cpp.o
+Linux_server_coding: CMakeFiles/Linux_server_coding.dir/5_12.cpp.o
 Linux_server_coding: CMakeFiles/Linux_server_coding.dir/build.make
 Linux_server_coding: CMakeFiles/Linux_server_coding.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Linux_server_coding"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/github/Linux-server-coding/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Linux_server_coding"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Linux_server_coding.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
