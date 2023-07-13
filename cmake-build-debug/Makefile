@@ -249,6 +249,150 @@ Linux_server_coding/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/5_6.cpp.s
 .PHONY : 5_6.cpp.s
 
+6_1.o: 6_1.cpp.o
+.PHONY : 6_1.o
+
+# target to build an object file
+6_1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_1.cpp.o
+.PHONY : 6_1.cpp.o
+
+6_1.i: 6_1.cpp.i
+.PHONY : 6_1.i
+
+# target to preprocess a source file
+6_1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_1.cpp.i
+.PHONY : 6_1.cpp.i
+
+6_1.s: 6_1.cpp.s
+.PHONY : 6_1.s
+
+# target to generate assembly for a file
+6_1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_1.cpp.s
+.PHONY : 6_1.cpp.s
+
+6_2.o: 6_2.cpp.o
+.PHONY : 6_2.o
+
+# target to build an object file
+6_2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_2.cpp.o
+.PHONY : 6_2.cpp.o
+
+6_2.i: 6_2.cpp.i
+.PHONY : 6_2.i
+
+# target to preprocess a source file
+6_2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_2.cpp.i
+.PHONY : 6_2.cpp.i
+
+6_2.s: 6_2.cpp.s
+.PHONY : 6_2.s
+
+# target to generate assembly for a file
+6_2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_2.cpp.s
+.PHONY : 6_2.cpp.s
+
+6_3.o: 6_3.cpp.o
+.PHONY : 6_3.o
+
+# target to build an object file
+6_3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_3.cpp.o
+.PHONY : 6_3.cpp.o
+
+6_3.i: 6_3.cpp.i
+.PHONY : 6_3.i
+
+# target to preprocess a source file
+6_3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_3.cpp.i
+.PHONY : 6_3.cpp.i
+
+6_3.s: 6_3.cpp.s
+.PHONY : 6_3.s
+
+# target to generate assembly for a file
+6_3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_3.cpp.s
+.PHONY : 6_3.cpp.s
+
+6_4.o: 6_4.cpp.o
+.PHONY : 6_4.o
+
+# target to build an object file
+6_4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_4.cpp.o
+.PHONY : 6_4.cpp.o
+
+6_4.i: 6_4.cpp.i
+.PHONY : 6_4.i
+
+# target to preprocess a source file
+6_4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_4.cpp.i
+.PHONY : 6_4.cpp.i
+
+6_4.s: 6_4.cpp.s
+.PHONY : 6_4.s
+
+# target to generate assembly for a file
+6_4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_4.cpp.s
+.PHONY : 6_4.cpp.s
+
+6_5.o: 6_5.cpp.o
+.PHONY : 6_5.o
+
+# target to build an object file
+6_5.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_5.cpp.o
+.PHONY : 6_5.cpp.o
+
+6_5.i: 6_5.cpp.i
+.PHONY : 6_5.i
+
+# target to preprocess a source file
+6_5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_5.cpp.i
+.PHONY : 6_5.cpp.i
+
+6_5.s: 6_5.cpp.s
+.PHONY : 6_5.s
+
+# target to generate assembly for a file
+6_5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/6_5.cpp.s
+.PHONY : 6_5.cpp.s
+
+8_3.o: 8_3.cpp.o
+.PHONY : 8_3.o
+
+# target to build an object file
+8_3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/8_3.cpp.o
+.PHONY : 8_3.cpp.o
+
+8_3.i: 8_3.cpp.i
+.PHONY : 8_3.i
+
+# target to preprocess a source file
+8_3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/8_3.cpp.i
+.PHONY : 8_3.cpp.i
+
+8_3.s: 8_3.cpp.s
+.PHONY : 8_3.s
+
+# target to generate assembly for a file
+8_3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/8_3.cpp.s
+.PHONY : 8_3.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +417,24 @@ help:
 	@echo "... 5_6.o"
 	@echo "... 5_6.i"
 	@echo "... 5_6.s"
+	@echo "... 6_1.o"
+	@echo "... 6_1.i"
+	@echo "... 6_1.s"
+	@echo "... 6_2.o"
+	@echo "... 6_2.i"
+	@echo "... 6_2.s"
+	@echo "... 6_3.o"
+	@echo "... 6_3.i"
+	@echo "... 6_3.s"
+	@echo "... 6_4.o"
+	@echo "... 6_4.i"
+	@echo "... 6_4.s"
+	@echo "... 6_5.o"
+	@echo "... 6_5.i"
+	@echo "... 6_5.s"
+	@echo "... 8_3.o"
+	@echo "... 8_3.i"
+	@echo "... 8_3.s"
 .PHONY : help
 
 

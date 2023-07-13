@@ -97,6 +97,24 @@
 		<Unit filename="/mnt/d/github/Linux-server-coding/5_6.cpp">
 			<Option target="Linux_server_coding"/>
 		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/6_1.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/6_2.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/6_3.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/6_4.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/6_5.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/8_3.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
 		<Unit filename="/mnt/d/github/Linux-server-coding/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
