@@ -556,6 +556,196 @@ Rector要求主线程(I/O处理单元)只负责监听文件描述符上是否有
 
 ## I/O复用
 
+### select系统调用
+
+在一段指定时间内，监听用户感兴趣的文件描述符上的可读、可写和异常等事件
+
+```c
+#include <sys/select.h>
+int select(int nfds , fd_set * readfds , fd_set * writefds , fd_set * exceptfds , struct timeval * timeout);
+/*
+nfds参数指定监听文件描述符的总数。通常被设置为select监听的所有文件描述符中的最大值加1，因为文件描述符是从0开始的
+readfds writefds execptfds 参数分别指向可读可写和异常等事件对应的文件描述符集合。
+应用程序调用select函数时，通过这3个参数传入自己感兴趣的文件描述符。
+select调用返回时，内核将修改它们来通知应用程序哪些文件描述符已经就绪。
+timeout参数用来设置select函数的超时时间，它是一个timeval结构类型的指针，
+采用指针参数是因为内核将修改它以告诉应用程序select等待了多久。
+不过我们不能完全信任select调用返回后的timeout值，比如调用失败时timeout值是不确定的。
+
+select成功时返回就绪（可读、可写和异常）文件描述符的总数。
+如果在超时时间内没有任何文件描述符就绪，select将返回0。select失
+败时返回-1并设置errno。如果在select等待期间，程序接收到信号，则
+select立即返回-1，并设置errno为EINTR。
+*/
+
+
+//fd_set结构体定义
+#include <typesizes.h>
+#define __FD_SETSZE 1024
+#include <sys/select.h>
+#define FD_SETSIZE __DF_SETSIZE
+typedef long int __fd_mask;
+#undef __UFDBITS
+#define __NFBITS (8 * (int)sizeof(__fd_mask));    /*一个long int 中包含多少bit*/
+typedef struct 
+{
+#ifdef __USE_XOPEN
+    __fd_mask fds_bits[__FD_SETSIZE / __NFBITS];  /*__FD_SETSIZE中含有多少个__NFBITS*/
+#define __FDS_BITS(set)((set)->fds_bits)
+#else
+    __fd_mask_fds_bits[__FD_SETSIZE / __BFDBITS];
+#define __FDS_BITS(set)((set)->fds_bits)
+#endif  
+} fd_set;
+/*
+fd_set结构体仅包含一个整型数组，该数组的每个元素的每一位（bit）标记一个文件描述符。
+fd_set能容纳的文件描述符数量由FD_SETSIZE指定，这就限制了select能同时处理的文件描述符的总量。
+由于位操作琐碎，我们应使用一系列宏来访问fd_set结构体中的位
+*/
+#include <sys/select.h>
+FD_ZERO(fd_set * fsset);            //清除fdset的所有位
+FD_SET(int fd , fd_SET * fdsetT);   //设置fdset上对应的fd
+FD_CLR(int fd , fd_SET * fdset);    //清楚fdset上对应的fd
+FD_ISSET(int fd , fd_SET * fdset);  //测试fdset的位fd是否被设置
+
+struct timeval
+{
+    long tv_sec;   //秒数
+    long tv_usec;  //微妙数
+}
+/*
+如果给timeout变量的tv_sec成员和tv_usec成员都传递0，
+则select将立即返回。如果给timeout传递NULL，
+则select将一直阻塞，直到某个文件描述符就绪。
+*/
+```
+
+### poll系统调用
+
+poll系统调用和select类似，也是在指定时间内轮询一定数量的文件描述符，以测试其中是否有就绪者
+
+```c
+#include <poll.h>
+int poll(struct pollfd * fds , nfds_t nfds , int timeout);
+/*
+fds是一个pollfd结构类型的数组，它指定我们感兴趣的文件描述符上发生的可读可写异常等事件
+nfds参数指定被监听事件集合fds的大小。其类型nfds_t的定义如下：
+typedef unsigned long int nfds_t
+
+timeout参数指定poll的超时值，单位是毫秒。当timeout为-1时，
+poll调用将永远阻塞，直到某个事件发生；当timeout为0时，poll调用将立即返回。
+*/
+
+//pollfd结构体的定义
+struct pollfd
+{
+    int fd;        //文件描述符
+    short events;  //注册事件
+    short revents; //实际发生的事件，由内核填充
+};
+```
+
+![](./img/Snipaste_2023-07-13_11-42-59.png)
+
+### epoll
+
+epoll把用户关心的文件描述符上的事件放在内核里的一 个事件表中，从而无须像select和poll那样每次调用都要重复传入文件描述符集或事件集。但epoll需要使用一个额外的文件描述符，来唯一标识内核中的这个事件表
+
+```c
+#include <sys/epoll.h>
+int epoll_create(int size);
+/*
+size参数现在并不起作用，只是给内核一个提示，告诉它事件表需要多大
+该函数返回的文件描述符将用作其他所有epoll系统调用的
+第一个参数，以指定要访问的内核事件表。
+*/
+```
+
+操作epoll内核事件表函数
+
+```c
+#include <sys/epoll.h>
+int epoll_ctl(int epfd , int op , int fd , struct epoll_event * event);
+/*
+fd是要操作的文件描述符，指向内核时间表
+op参数指定操作类型，有3种
+EPOLL_CTL_ADD 往事件表上注册fd上的事件
+EPOLL_CTL_MOD 修改fd上的注册事件
+EPOLL_CTL_DEL 删除fd上的注册事件
+event参数指定事件，它是epoll_event结构指针类型
+
+epoll_ctl成功时返回0，失败则返回-1并设置errno。
+*/
+struct epoll_event
+{
+    __uint32_t events;   //epoll事件
+    epoll_data_t data;   //用户数据
+}
+/*
+events成员描述事件类型，如数据可读是EPOLLIN，epoll还提供了EPOLLET和EPOLLONESHOT这让epoll变的高效
+data成员用于存储用户数据
+*/
+typedef union epoll_data
+{
+    void * void * ptr;
+    int fd;
+    uint32_t u32;
+    uint64_t u64;
+}epoll_data_t;
+/*
+epoll_data_t 是一个联合体，使用最多的fd，它指定是事件所从属的文件描述符，
+ptr成员可用来指定与fd相关的用户数据，但由于epoll_data_t是一个联合体，
+我们不能同时使用其ptr成员和fd成员，如果要将文件描述符和用户数据关联起来，以实现快速的数据访问，
+只能使用其他手段，比如放弃使用epoll_data_t的fd成员，而在ptr指向的用户数据中包含fd。
+*/
+
+```
+
+epoll系列系统调用的主要接口是epoll_wait函数。它在一段超时时间内等待一组文件描述符上的事件
+
+```c
+#include <sys/epoll.h>
+int epoll_wait(int epfd , struct epoll_event * events , int maxevents , int timeout);
+/*
+epoll_wait函数如果检测到事件，就将所有就绪的事件从内核事件
+表（由epfd参数指定）中复制到它的第二个参数events指向的数组中。
+这个数组只用于输出epoll_wait检测到的就绪事件
+
+maxevents参数指定最多监听多少个事件，它必须大于0。
+
+timeout参数指定epoll的超时值，单位是毫秒。当timeout为-1时，
+epoll调用将永远阻塞，直到某个事件发生；当timeout为0时，epoll调用将立即返回。
+
+该函数成功时返回就绪的文件描述符的个数，失败时返回-1并设置errno。
+*/
+```
+
+epoll对文件描述符的操作有两种模式 LT和ET，LT模式是默认的工作模式，这种模式下epoll相当于一个小路较高的poll。当往epoll内核事件表中注册一个文件描述符上的EPOLLET事件时，epoll将以ET模式来操作该文件描述符。ET模式是epoll的高效工作模式。
+
+对于采用LT工作模式的文件描述符，当epoll_wait检测到其上有事件发生并将此事件通知应用程序后，应用程序可以不立即处理该事件。这样，当应用程序下一次调用epoll_wait时，epoll_wait还会再次向应用程序通告此事件，直到该事件被处理。
+
+而对于采用ET工作模式的文件描述符，当epoll_wait检测到其上有事件发生并将此事件通知应用程序后，应用程序必须立即处理该事件，因为后续的epoll_wait调用将不再向应用程序通知这一事件，ET模式在很大程度上降低了同 一个epoll事件被重复触发的次数，因此效率要比LT模式高
+
+每个使用ET模式的文件描述符都应该是非阻塞的。如果文件描述符是阻塞的，那么读或写操作将会因为没有后续的事件而一直处于阻塞状态。LT是对于每个epoll_wait返回的读事件，每次都是读取一定数量的字节，然后返回，若没读完，等待下一次epoll_wait再读，因此LT的每次读的时候缓冲区都是非空的；而ET对于epoll_wait返回的读事件，需要使用while循环把所有字节都读取完毕，也就是读到缓冲区为空为止，这样最后一次读取一定会导致阻塞，因此需要把ET的读取设置成非阻塞的
+
+### EPOLLONESHOT事件
+
+即使我们使用ET模式，一个socket上的某个事件还是可能被触发多次。这在并发程序中就会引起一个问题。比如一个线程在读取完某个socket上的数据后开始处理这些数据，而在数据的处理过程中该socket上又有新数据可读（EPOLLIN再次被触发）， 此时另外一个线程被唤醒来读取这些新的数据。于是就出现了两个线程同时操作一个socket的局面。这当然不是我们期望的。我们期望的是一个socket连接在任一时刻都只被一个线程处理。这一点可以使用 epoll 的EPOLLONESHOT事件实现。
+
+对于注册了EPOLLONESHOT事件的文件描述符，操作系统最多触发其上注册的一个可读、可写或者异常事件，且只触发一次，除非我们使用epoll_ctl函数重置该文件描述符上注册的EPOLLONESHOT事件。这样，当一个线程在处理某个socket时，其他线程是不可能有机会操作该socket的。但反过来思考，注册了EPOLLONESHOT事件的 socket一旦被某个线程处理完毕，该线程就应该立即重置这个socket上 的EPOLLONESHOT事件，以确保这个socket下一次可读时，其 EPOLLIN事件能被触发，进而让其他工作线程有机会继续处理这个 socket。
+
+### 三者比较
+
+![](./img/Snipaste_2023-07-13_20-07-36.png)
+
+### 非阻塞connect
+
+connect出错时的一种errno值：EINPROGRESS。这种错误发生在对非阻塞socket调用connect，而连接又没有立即建立时，，在这种情况下，我们可以调用select  poll 等函数来监听这个连接失败的socket上的可写事件，当select、poll等函数返回后，再利用getsockopt来读取错误码并清除该socket上的错误。 如果错误码是0，表示连接成功建立，否则连接失败 
+
+
+
+
+
 
 
 
