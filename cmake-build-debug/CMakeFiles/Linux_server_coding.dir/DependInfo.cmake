@@ -23,6 +23,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/d/github/Linux-server-coding/9_3.cpp" "CMakeFiles/Linux_server_coding.dir/9_3.cpp.o" "gcc" "CMakeFiles/Linux_server_coding.dir/9_3.cpp.o.d"
   "/mnt/d/github/Linux-server-coding/9_4.cpp" "CMakeFiles/Linux_server_coding.dir/9_4.cpp.o" "gcc" "CMakeFiles/Linux_server_coding.dir/9_4.cpp.o.d"
   "/mnt/d/github/Linux-server-coding/9_5.cpp" "CMakeFiles/Linux_server_coding.dir/9_5.cpp.o" "gcc" "CMakeFiles/Linux_server_coding.dir/9_5.cpp.o.d"
+  "/mnt/d/github/Linux-server-coding/9_6.cpp" "CMakeFiles/Linux_server_coding.dir/9_6.cpp.o" "gcc" "CMakeFiles/Linux_server_coding.dir/9_6.cpp.o.d"
+  "/mnt/d/github/Linux-server-coding/9_7.cpp" "CMakeFiles/Linux_server_coding.dir/9_7.cpp.o" "gcc" "CMakeFiles/Linux_server_coding.dir/9_7.cpp.o.d"
   )
 
 # Targets to which this target links.

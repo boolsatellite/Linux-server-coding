@@ -738,13 +738,7 @@ epoll对文件描述符的操作有两种模式 LT和ET，LT模式是默认的�
 
 ![](./img/Snipaste_2023-07-13_20-07-36.png)
 
-### 非阻塞connect
-
-connect出错时的一种errno值：EINPROGRESS。这种错误发生在对非阻塞socket调用connect，而连接又没有立即建立时，，在这种情况下，我们可以调用select  poll 等函数来监听这个连接失败的socket上的可写事件，当select、poll等函数返回后，再利用getsockopt来读取错误码并清除该socket上的错误。 如果错误码是0，表示连接成功建立，否则连接失败 
-
-
-
-
+目前看到第九章，这本书有些困难，等功力涨涨在回来看看吧
 
 
 

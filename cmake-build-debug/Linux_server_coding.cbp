@@ -127,6 +127,12 @@
 		<Unit filename="/mnt/d/github/Linux-server-coding/9_5.cpp">
 			<Option target="Linux_server_coding"/>
 		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/9_6.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
+		<Unit filename="/mnt/d/github/Linux-server-coding/9_7.cpp">
+			<Option target="Linux_server_coding"/>
+		</Unit>
 		<Unit filename="/mnt/d/github/Linux-server-coding/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -489,6 +489,54 @@ Linux_server_coding/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/9_5.cpp.s
 .PHONY : 9_5.cpp.s
 
+9_6.o: 9_6.cpp.o
+.PHONY : 9_6.o
+
+# target to build an object file
+9_6.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/9_6.cpp.o
+.PHONY : 9_6.cpp.o
+
+9_6.i: 9_6.cpp.i
+.PHONY : 9_6.i
+
+# target to preprocess a source file
+9_6.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/9_6.cpp.i
+.PHONY : 9_6.cpp.i
+
+9_6.s: 9_6.cpp.s
+.PHONY : 9_6.s
+
+# target to generate assembly for a file
+9_6.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/9_6.cpp.s
+.PHONY : 9_6.cpp.s
+
+9_7.o: 9_7.cpp.o
+.PHONY : 9_7.o
+
+# target to build an object file
+9_7.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/9_7.cpp.o
+.PHONY : 9_7.cpp.o
+
+9_7.i: 9_7.cpp.i
+.PHONY : 9_7.i
+
+# target to preprocess a source file
+9_7.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/9_7.cpp.i
+.PHONY : 9_7.cpp.i
+
+9_7.s: 9_7.cpp.s
+.PHONY : 9_7.s
+
+# target to generate assembly for a file
+9_7.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Linux_server_coding.dir/build.make CMakeFiles/Linux_server_coding.dir/9_7.cpp.s
+.PHONY : 9_7.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -543,6 +591,12 @@ help:
 	@echo "... 9_5.o"
 	@echo "... 9_5.i"
 	@echo "... 9_5.s"
+	@echo "... 9_6.o"
+	@echo "... 9_6.i"
+	@echo "... 9_6.s"
+	@echo "... 9_7.o"
+	@echo "... 9_7.i"
+	@echo "... 9_7.s"
 .PHONY : help
 
 
